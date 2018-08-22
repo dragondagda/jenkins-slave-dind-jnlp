@@ -5,4 +5,4 @@ sudo dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --stor
 echo "starting jnlp slave..."
 exec java -jar /usr/share/jenkins/slave.jar \
 	-jnlpUrl $JENKINS_URL/computer/$JENKINS_SLAVE_NAME/slave-agent.jnlp \
-	-secret $JENKINS_SLAVE_SECRET
+	-secret $JENKINS_SLAVE_SECRET -workDir "/home/jenkins/workdir"
